@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trivia Game</title>
+    <link type = 'text/css' rel = 'stylesheet' href = 'stylesheet.css'/>
+    <link rel = "stylesheet" type = text/css href = "https://opentdb.com/api_config.php?family= Times New Roman"/>
+  </head>
+  <body>
+    <div id = 'container'>
+      <div id = 'title'>
+        <h1>Work Project: Trivia Game</h1>
+      </div>
+      <br/>
+      <div id = 'quiz'></div>
+      <div class = 'button' id = 'next'><a href = '#'>Next</a></div>
+      <div class = 'button' id = 'start'><a href = '#'>Start</a></div>
+       <div class = 'button' id = 'over'><a href = '#'>Start Over</a></div>
+      <!-- <button class = '' id = 'next'>Next</a></button>
+      <button class = '' id = 'start'>Start</a></button> 
+      <button class = '' id = 'over'? Start Over</a></button>-->
+    </div>
+    
+    <div id = "progress"></div>
+    
+    <div class = "center">
+      <div id = "questions">
+        <i id = "numberOfQuestions" class = "ion-android-arrow-forward next"></i>
+        
+        <div id = "inputContainer">
+          <input id = "inputField" required autofocus/>
+          <label id = "inputLabel"></label>
+          <div id = "inputProgress"></div>
+        </div>
+      </div>
+    </div>
+    
+    <script type = "text/javascript" src = 'https://opentdb.com/api_config.php'></script>
+    <script type = "text/javascript" src = 'questions.json'></script>
+    <script type = 'text/javascript' src = 'triviaquiz.js'></script>
+  </body>
+</html>
+    
