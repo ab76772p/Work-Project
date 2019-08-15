@@ -1,0 +1,427 @@
+const start = document.getElementById("start");
+const quiz = document.getElementById("quiz");
+const question = document.getElementById("type");
+const category = document.getElementById("value");
+const number = document.getElementById("numberOfQuestions");
+
+(function() 
+{
+	var monthQuestions = [
+	{
+		question: "1) How many days are in February during a leap year?",
+		choiceA: 28, 
+		choiceB: 30, 
+		choiceC: 31, 
+		choiceD: 29,
+		correct: 29
+	}, 
+	{
+		question: "2) What day in February is Valentine's Day?",
+		choiceA: 9, 
+		choiceB: 6, 
+		choiceC: 14, 
+		choiceD: 12,
+		correct: 14
+	}, 
+	{
+		question: "3) What number month is July?",
+		choiceA: 7, 
+		choiceB: 3, 
+		choiceC: 4, 
+		choiceD: 10,
+		correct: 7
+	}, 
+	{
+		question: "4) What day is Independence Day in July?",
+		choiceA: 19, 
+		choiceB: 4, 
+		choiceC: 27, 
+		choiceD: 32,
+		correct: 4
+	}, 
+	{
+		question: "5) How many days are in June?",
+		choiceA: 29, 
+		choiceB: 30, 
+		choiceC: 27, 
+		choiceD: 31,
+		correct: 30
+	},
+	{
+		question: "6) In December, what day is Christmas Eve?",
+		choiceA: 25, 
+		choiceB: 28, 
+		choiceC: 24, 
+		choiceD: 30,
+		correct: 24
+	},
+	{
+		question: "7) What day is Thanksgiving in November this year?",
+		choiceA: 17, 
+		choiceB: 3, 
+		choiceC: 24, 
+		choiceD: 28,
+		correct: 28
+}]
+	
+(function()
+{
+	var superQuestions = [
+	{
+		question: "1) Which superhero wears a suit?",
+		choiceA: 'Black Panther', 
+		choiceB: 'Iron Man', 
+		choiceC: 'Captain America', 
+		choiceD: 'all of them, duhhh',
+		correct: 'all of them, duhhh'
+	},
+	{
+		question: "2) Which superhero wields a hammer?",
+		choiceA: 'Thor',
+		choiceB: 'Black Widow',
+		choiceC: 'Hawkeye',
+		choiceD: 'Hulk',
+		correct: 'Thor'
+	},
+	{
+		question: "3) Which hero has an anger issue?",
+		choiceA: 'Hulk',
+		choiceB: 'Loki',
+		choiceC: 'Star Lord',
+		choiceD: 'Iron Man',
+		correct: 'Hulk'
+	},
+	{
+		question: "4) What is Hawkeye's weapon?",
+		choiceA: 'a hammer',
+		choiceB: 'a shield',
+		choiceC: 'bow and arrow',
+		choiceD: 'claws',
+		correct: 'bow and arrow'
+	},
+	{
+		question: "5) What is Black Widow's weapon?",
+		choiceA: 'dark magic',
+		choiceB: 'a staff',
+		choiceC: 'mystic arts',
+		choiceD: 'none of the above',
+		correct: 'none of the above'
+	},
+	{
+		question: "6) Which character died in Infinity War?",
+		choiceA: 'Captain America',
+		choiceB: 'Gamora',
+		choiceC: 'Hulk',
+		choiceD: 'Thor',
+		correct: 'Gamora',
+	},
+	{
+		question: "7) Who is close friends with Iron Patriot?",
+		choiceA: 'Iron Man',
+		choiceB: 'Thanos',
+		choiceC: 'Vision',
+		choiceD: 'none of the above',
+		correct: 'Iron Man'
+	}
+]});
+
+(function()
+{
+	var animalQuestions = [
+	{
+		question: "1) Which animal lives underwater?",
+		choiceA: 'clown fish',
+		choiceB: 'beetles',
+		choiceC: 'jaguars',
+		choiceD: 'lions',
+		correct: 'clown fish'
+	},
+	{
+		question: "2) Which animal can fly?",
+		choiceA: 'leopard',
+		choiceB: 'panda',
+		choiceC: 'cardinal',
+		choiceD: 'penguin',
+		correct: 'cardinal'
+	},
+	{
+		question: "3) Which animal can be poisonous if having bright colors?",
+		choiceA: 'porcupine',
+		choiceB: 'frog',
+		choiceC: 'puffin',
+		choiceD: 'lizard',
+		correct: 'frog'
+	},
+	{
+		question: "4) What do porcupines have on their bodies?",
+		choiceA: 'claws',
+		choiceB: 'fur',
+		choiceC: 'hair',
+		choiceD: 'spikes',
+		correct: 'spikes'
+	},
+	{
+		question: "5) What do fish use to breathe underwater?",
+		choiceA: 'scales',
+		choiceB: 'gills',
+		choiceC: 'air bags',
+		choiceD: 'breathilizer',
+		correct: 'gills'
+	},
+	{
+		question: "6) Where are sea turtles born?",
+		choiceA: 'in water',
+		choiceB: 'on sand',
+		choiceC: 'in a tree',
+		choiceD: 'in a nest',
+		correct: 'on sand'
+	},
+	{
+		question: "7) What do lions eat?",
+		choiceA: 'bamboo',
+		choiceB: 'seaweed',
+		choiceC: 'people',
+		choiceD: 'meat',
+		correct: 'meat'
+	}	
+]});
+  
+  var inputQuestions = [
+    {question: "Choose between three to seven questions"},
+    {question: "Choose between Animals, Months, and Superheroes for a category."}
+  ]
+  
+ ;(function()
+  {
+   var tTime = 100
+   var wTime = 200
+   var eTime = 1000
+   
+   var position = 0
+   
+   putQuestion()
+   
+   numberOfQueestions.addEventListener('click', validate)
+   inputField.addEventListener('keyup', function(e)
+    {
+      transform(0,0)
+      if(e.keyCode == 13)
+        validate();
+  })
+   
+  function putQuestion()
+   {
+     inputLabel.innerHTML = question[position].question
+     inputField.value = ' '
+     inputField.type = inputQuestion[position].type || 'text'
+     inputField.focus();
+     showCurrent();
+   }
+
+   function done()
+   {
+     register.className = 'close'
+     var h1 = document.createElement('h1')
+     h1.appendChild(document.createTextNode(' Click start' + inputQuestions[0] + '!'))
+     setTimeout(function()
+     {Element.appendChild(h1)
+      //setTimeout(function() 
+        // {h1.style.opacity = 1}, 50}, eTime) 
+   }
+  )
+     
+   function validate()
+     {
+       inputQuestions[position].value = inputField.value
+       
+       if(!inputField.value.math(inputQuestions[position].pattern || /.+/)) 
+         wrong()
+       else
+         ok(function())
+         {
+            progress.style.width = ++position * 100 / questions.length + 'vw'     
+            
+            if(inputQuestions[position])
+             hideCurrent(putQuestion)
+            else 
+              hideCurrent(done)
+         }
+     }
+   
+    function hideCurrent(callback) 
+   {
+    inputContainer.style.opacity = 0
+    inputProgress.style.transition = 'none'
+    inputProgress.style.width = 0
+    setTimeout(callback, wTime)
+  }
+
+    function showCurrent(callback) 
+   {
+    inputContainer.style.opacity = 1
+    inputProgress.style.transition = ''
+    inputProgress.style.width = '100%'
+    setTimeout(callback, wTime)
+   }
+
+   function transform(x, y) {
+    register.style.transform = 'translate(' + x + 'px ,  ' + y + 'px)'
+   }
+
+    function ok(callback) 
+   {
+    register.className = ''
+    setTimeout(transform, tTime * 0, 0, 10)
+    setTimeout(transform, tTime * 1, 0, 0)
+    setTimeout(callback,  tTime * 2)
+  }
+
+  function wrong(callback) 
+   {
+    register.className = 'wrong'
+    for(var i = 0; i < 6; i++) // shaking motion
+      setTimeout(transform, tTime * i, (i%2*2-1)*20, 0)
+    setTimeout(transform, tTime * 6, 0, 0)
+    setTimeout(callback,  tTime * 7)
+  }
+
+}())
+
+
+let currentQuestion = 0;
+var select = 0;
+var quiz = $('#quiz');
+var category = false;
+var number = false;
+
+if(inputQuestions === true)
+{
+	summonQuestion();
+}
+else 
+{
+	alert('Please make a selection!');
+}
+displayNext();
+
+$('#next').on('click', function (e) 
+{
+	e.preventDefault();
+		
+	if(quiz.is(':animated')) 
+	{        
+		return false;
+	}
+		choose();
+		
+$('#over').on('click', function (e) 
+{
+	e.preventDefault();
+				
+	if(quiz.is(':animated')) 
+	{
+		return false;
+	} 
+		currentQuestion = 0;
+		select = [];
+		displayNext();
+		$('#over').hide();
+});
+
+if(quiz.isNaN())
+{
+	alert('Please make a selection!');
+}
+else 
+{
+	
+}
+
+$('.button').on('mouseenter', function () {
+		$(this).addClass('active');
+	});
+	$('.button').on('mouseleave', function () {
+		$(this).removeClass('active');
+	});
+	
+function summonQuestion()
+{
+	let q = question[currentQuestion];
+	var qElement = $('<div>', {
+				id: 'question'
+			});
+			
+	var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+	qElement.append(header);
+			
+	var question = $('<p>').append(question[index].question);
+	qElement.append(question);
+			
+	var radioButtons = createRadios(index);
+	qElement.append(radioButtons);
+			
+	return qElement;
+}
+
+ function createRadios(index) 
+{
+	var radioList = $('<ul>');
+	var item;
+	var input = '';
+	for (var i = 0; i < question[index].choices.length; i++) 
+	{
+		item = $('<li>');
+		input = '<input type="radio" name="answer" value=' + i + ' />';
+		input += questions[index].choices[i];
+		item.append(input);
+		radioList.append(item);
+	}
+	return radioList;
+}
+
+function choose() 
+{
+		select[currentQuestion] = +$('input[name="answer"]:checked').val();
+}
+
+function displayNext() 
+{
+	quiz.fadeOut(function() 
+	{
+		$('#question').remove();
+			
+		if(currentQuestion < question.length)
+		{
+			var nextQuestion = summonQuestion(currentQuestion);
+			quiz.append(nextQuestion).fadeIn();
+				if (!(isNaN(select[currentQuestion]))) 
+				{
+					$('input[value='+select[currentQuestion]+']').prop('checked', true);
+				}
+				else 
+				{
+					var scoreElem = showScore();
+					quiz.append(scoreElem).fadeIn();
+					$('#next').hide();
+					$('#start').show();
+				}
+		});
+}
+
+function showScore()
+{
+	var score = $('<p>',{id: 'question'});
+	var numCorrect = 0;
+	for (var i = 0; i < select.length; i++) 
+	{
+		if (select[i] === question[i].correctAnswer) 
+		{
+			numCorrect++;
+		}
+	}
+	score.append('You got ' + numCorrect + ' questions out of ' +
+									 question.length + ' right!');
+	return score;
+}
+	
+}
